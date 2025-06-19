@@ -8,7 +8,7 @@
 </ul>
 
 <h2>Members</h2>
-<ul>
+<ul style="list-style:none">
   <h3>Developpment</h3>
     <li>Reznov</li>
     <li>Ronny Ellis</li>
