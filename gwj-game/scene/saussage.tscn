@@ -18,7 +18,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.3,
+"duration": 1.0,
 "texture": ExtResource("1_vd847")
 }, {
 "duration": 1.0,
@@ -42,6 +42,7 @@ animations = [{
 size = Vector2(10, 25)
 
 [node name="saussage" type="CharacterBody2D"]
+scale = Vector2(1.75, 1.75)
 script = ExtResource("1_wiiqt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
