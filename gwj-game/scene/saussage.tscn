@@ -1,17 +1,36 @@
-[gd_scene load_steps=9 format=3 uid="uid://ch83t3uo3o165"]
+[gd_scene load_steps=13 format=3 uid="uid://ch83t3uo3o165"]
 
 [ext_resource type="Texture2D" uid="uid://bcbllq6hfnee5" path="res://asset/Saussage/sausages1.png" id="1_vd847"]
 [ext_resource type="Script" uid="uid://bu1k8k5gmrib7" path="res://script/saussage.gd" id="1_wiiqt"]
+[ext_resource type="Texture2D" uid="uid://b7ddmnnhb8os0" path="res://asset/Saussage/sausages.png" id="2_tdvn3"]
 [ext_resource type="Texture2D" uid="uid://cvlcee7frnqu6" path="res://asset/Saussage/sausages2.png" id="2_wiiqt"]
 [ext_resource type="Texture2D" uid="uid://colt47y1fhtos" path="res://asset/Saussage/sausages3.png" id="3_tdvn3"]
 [ext_resource type="Texture2D" uid="uid://du8qdwaaqx0d8" path="res://asset/Saussage/sausages4.png" id="4_vmhev"]
 [ext_resource type="Texture2D" uid="uid://byfmulu0y2jhh" path="res://asset/Saussage/sausages5.png" id="5_caijy"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmhev"]
+atlas = ExtResource("2_tdvn3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_caijy"]
+atlas = ExtResource("2_tdvn3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo1m1"]
+atlas = ExtResource("2_tdvn3")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_wo1m1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_vd847")
+"texture": SubResource("AtlasTexture_vmhev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_caijy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo1m1")
 }],
 "loop": true,
 "name": &"idle",
@@ -47,7 +66,8 @@ script = ExtResource("1_wiiqt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wo1m1")
-animation = &"walk"
+animation = &"idle"
+frame_progress = 0.834383
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)
