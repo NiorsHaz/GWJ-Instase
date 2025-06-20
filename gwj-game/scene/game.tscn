@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://br413dl7gps6d"]
+
+[ext_resource type="PackedScene" uid="uid://ch83t3uo3o165" path="res://scene/saussage.tscn" id="1_5kiuu"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dbls1"]
+distance = -53.0
+
+[node name="game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -2)
+zoom = Vector2(2, 2)
+
+[node name="saussage" parent="." instance=ExtResource("1_5kiuu")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_dbls1")
