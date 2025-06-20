@@ -1,4 +1,5 @@
 TileMapLayer
+Node2D
 ParallaxBackground
 ParallaxLayer
 Camera2D
