@@ -1,56 +1,122 @@
 extends CharacterBody2D
 
-
-var speed = 100
-
+var speed = 50
 var health = 100
-
 var dead = false
 var player_in_area = false
 var player
 
+var random_walk_timer = 0.0
+var random_walk_direction = 0
+var is_moving_randomly = false
+var random_walk_duration = 0.0
+var pause_timer = 0.0
+
+var spawn_position: Vector2
+var patrol_range = 200.0 
+var returning_to_spawn = false
+var return_speed = 25.0  
+
 func _ready() -> void:
 	dead = false
-	
+	spawn_position = position 
+
 func _physics_process(delta: float) -> void:
 	if !dead:
 		$PlayerDetectionArea/CollisionShape2D.disabled = false
+		
 		if player_in_area:
-			position += (player.position - position) / speed
+			# Suivre le joueur si détecté
+			var direction_to_player = sign(player.position.x - position.x)
+			position.x += direction_to_player * speed * get_physics_process_delta_time()
+			
+			$AnimatedSprite.flip_h = direction_to_player < 0
 			$AnimatedSprite.play("Move")
 			
+			is_moving_randomly = false
+			returning_to_spawn = false
 		else:
-			$AnimatedSprite.play("Idle")
-
+			if position.distance_to(spawn_position) > patrol_range && !returning_to_spawn:
+				returning_to_spawn = true
+				is_moving_randomly = false
+			
+			if returning_to_spawn:
+				handle_return_to_spawn(delta)
+			else:
+				handle_random_walk(delta)
+			
 		if dead:
 			$PlayerDetectionArea/CollisionShape2D.disabled = true
 
+func handle_return_to_spawn(delta: float) -> void:
+	var direction = (spawn_position - position).normalized()
+	position += direction * return_speed * delta
+	$AnimatedSprite.play("Move")
+	$AnimatedSprite.flip_h = direction.x < 0
+	
+	if position.distance_to(spawn_position) < 10.0:
+		returning_to_spawn = false
+		pause_timer = 0.0  # Reset le timer pour une pause avant de repartir
+
+func handle_random_walk(delta: float) -> void:
+	if !is_moving_randomly:
+		pause_timer += delta
+		$AnimatedSprite.play("Idle")
+		
+		if pause_timer >= 2.0:
+			is_moving_randomly = true
+			random_walk_direction = randi() % 3 - 1
+			random_walk_duration = randf_range(0.5, 2.0)
+			random_walk_timer = 0.0
+			pause_timer = 0.0
+	else:
+		random_walk_timer += delta
+		
+		if random_walk_timer < random_walk_duration:
+			if random_walk_direction != 0:
+				var new_position = position + Vector2(random_walk_direction * speed * delta, 0)
+				
+
+				if abs(new_position.x - spawn_position.x) <= patrol_range:
+					position = new_position
+					$AnimatedSprite.play("Move")
+					$AnimatedSprite.flip_h = random_walk_direction < 0
+				else:
+
+					random_walk_direction *= -1
+					$AnimatedSprite.flip_h = random_walk_direction < 0
+			else:
+				$AnimatedSprite.play("Idle")
+		else:
+			is_moving_randomly = false
+			$AnimatedSprite.play("Idle")
 
 func _on_player_detection_area_body_entered(body: Node2D) -> void:
-		if body.has_method("player"):
-			player_in_area = true
-			player = body
-
+	if body.has_method("player"):
+		player_in_area = true
+		player = body
 
 func _on_player_detection_area_body_exited(body: Node2D) -> void:
-		if body.has_method("player"):
-			player_in_area = false
+	if body.has_method("player"):
+		player_in_area = false
 
+		if position.distance_to(spawn_position) > patrol_range:
+			returning_to_spawn = true
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	var damage
-	print("something entered ",area.name)
-	print("Enemy health :", health)
+	print("something entered ", area.name)
 	if area.has_method("bullet"):
 		damage = 50
 		take_damage(damage)
 	if area.name == "DamgeTestBox":
 		damage = 50
 		take_damage(damage)
+		print("Enemy health :", health)
 
 func take_damage(damage):
-	health = health - damage
-	if health <=0 and !dead:
+	health -= damage
+	if health <= 0 and !dead:
 		death()
 		
 func death():
@@ -58,3 +124,9 @@ func death():
 	$AnimatedSprite.play("Death")
 	await get_tree().create_timer(1).timeout
 	queue_free()
+
+func _on_hitbox_area_exited(area: Area2D) -> void:
+	speed = 50
+
+	if !player_in_area && position.distance_to(spawn_position) > patrol_range:
+		returning_to_spawn = true
