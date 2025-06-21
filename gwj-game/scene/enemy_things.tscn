@@ -284,5 +284,6 @@ shape = SubResource("CapsuleShape2D_m1eei")
 position = Vector2(-3.5, 17)
 shape = SubResource("RectangleShape2D_vjouh")
 
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
 [connection signal="body_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_exited"]

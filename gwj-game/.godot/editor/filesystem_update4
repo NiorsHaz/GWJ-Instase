@@ -2,3 +2,5 @@ res://scene/game.tscn
 res://script/saussage.gd
 res://scene/enemy_things.tscn
 res://script/enemy_things.gd
+res://scene/saussage.tscn
+res://Script/enemy_things.gd
