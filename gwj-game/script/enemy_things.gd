@@ -12,6 +12,9 @@ var is_moving_randomly = false
 var random_walk_duration = 0.0
 var pause_timer = 0.0
 
+var is_facing_right = true
+var detection_margin = 20
+
 var spawn_position: Vector2
 var patrol_range = 200.0 
 var returning_to_spawn = false
@@ -24,13 +27,15 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if !dead:
 		$PlayerDetectionArea/CollisionShape2D.disabled = false
+		print("A droite ? :" , is_facing_right)
 		
 		if player_in_area:
 			# Suivre le joueur si détecté
 			var direction_to_player = sign(player.position.x - position.x)
 			position.x += direction_to_player * speed * get_physics_process_delta_time()
 			
-			$AnimatedSprite.flip_h = direction_to_player < 0
+			is_facing_right = direction_to_player > 0
+			$AnimatedSprite.flip_h = !is_facing_right # direction_to_player < 0
 			$AnimatedSprite.play("Rampage")
 			
 			is_moving_randomly = false
@@ -52,7 +57,8 @@ func handle_return_to_spawn(delta: float) -> void:
 	var direction = (spawn_position - position).normalized()
 	position += direction * return_speed * delta
 	$AnimatedSprite.play("Move")
-	$AnimatedSprite.flip_h = direction.x < 0
+	is_facing_right = direction.x > 0
+	$AnimatedSprite.flip_h = !is_facing_right # direction.x < 0
 	
 	if position.distance_to(spawn_position) < 10.0:
 		returning_to_spawn = false
@@ -79,12 +85,13 @@ func handle_random_walk(delta: float) -> void:
 
 				if abs(new_position.x - spawn_position.x) <= patrol_range:
 					position = new_position
+					is_facing_right = random_walk_direction > 0
 					$AnimatedSprite.play("Move")
-					$AnimatedSprite.flip_h = random_walk_direction < 0
+					$AnimatedSprite.flip_h = !is_facing_right # random_walk_direction < 0
 				else:
 
 					random_walk_direction *= -1
-					$AnimatedSprite.flip_h = random_walk_direction < 0
+					$AnimatedSprite.flip_h = !is_facing_right # random_walk_direction < 0
 			else:
 				$AnimatedSprite.play("Idle")
 		else:
@@ -93,8 +100,13 @@ func handle_random_walk(delta: float) -> void:
 
 func _on_player_detection_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
-		player_in_area = true
-		player = body
+		if is_facing_right and body.position.x > position.x:
+			player_in_area = true
+			player = body
+		elif !is_facing_right and body.position.x < position.x:
+			player_in_area = true
+			player = body
+			
 
 func _on_player_detection_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
@@ -117,7 +129,6 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 func take_damage(damage):
 	health -= damage
 	$AnimatedSprite.play("Hit")
-	await get_tree().create_timer(5).timeout
 	if health <= 0 and !dead:
 		death()
 		
