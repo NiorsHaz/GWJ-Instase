@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 			position.x += direction_to_player * speed * get_physics_process_delta_time()
 			
 			$AnimatedSprite.flip_h = direction_to_player < 0
-			$AnimatedSprite.play("Move")
+			$AnimatedSprite.play("Rampage")
 			
 			is_moving_randomly = false
 			returning_to_spawn = false
@@ -116,6 +116,8 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 
 func take_damage(damage):
 	health -= damage
+	$AnimatedSprite.play("Hit")
+	await get_tree().create_timer(5).timeout
 	if health <= 0 and !dead:
 		death()
 		
