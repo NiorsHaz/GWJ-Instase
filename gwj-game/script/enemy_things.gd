@@ -116,6 +116,8 @@ func _on_player_detection_area_body_exited(body: Node2D) -> void:
 			returning_to_spawn = true
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
+	if dead:
+		return
 	var damage
 	print("something entered ", area.name)
 	if area.has_method("bullet"):
@@ -136,7 +138,9 @@ func death():
 	dead = true
 	$AnimatedSprite.play("Death")
 	await get_tree().create_timer(1).timeout
-	queue_free()
+	#queue_free()
+	$CollisionShape2D.disabled = true
+	
 
 func _on_hitbox_area_exited(area: Area2D) -> void:
 	speed = 50
