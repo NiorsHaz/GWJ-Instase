@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ch83t3uo3o165"]
+[gd_scene load_steps=14 format=3 uid="uid://ch83t3uo3o165"]
 
 [ext_resource type="Texture2D" uid="uid://bcbllq6hfnee5" path="res://asset/Saussage/sausages1.png" id="1_vd847"]
 [ext_resource type="Script" uid="uid://bu1k8k5gmrib7" path="res://script/saussage.gd" id="1_wiiqt"]
@@ -60,6 +60,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqtd6"]
 size = Vector2(10, 25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdvn3"]
+size = Vector2(33.7143, 30.2857)
+
 [node name="saussage" type="CharacterBody2D"]
 scale = Vector2(1.75, 1.75)
 script = ExtResource("1_wiiqt")
@@ -72,3 +75,10 @@ frame_progress = 0.834383
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_xqtd6")
+
+[node name="DamgeTestBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamgeTestBox"]
+position = Vector2(-0.285715, 0.857142)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_tdvn3")
