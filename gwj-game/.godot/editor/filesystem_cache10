@@ -1,16 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
 ::res://::1750569844
 icon.svg::CompressedTexture2D/CompressedTexture2D::2396502047110674945::1750445500::1750446345::1::::<><><>0<>0<>d96233f82c3e872ed6e27d531c915108<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://asset/::1750446712
-::res://asset/FreeNinja/::1750446712
-::res://asset/FreeNinja/YellowNinja/::1750446714
-yellowNinja - attack.png::CompressedTexture2D/CompressedTexture2D::1253166293207936629::1721754734::1750446714::1::::<><><>0<>0<>55d5d66df9d9eab0e4fa70b05733f2de<>res://.godot/imported/yellowNinja - attack.png-e3f7b0b061de7e293a698d135424656e.ctex::
-yellowNinja - Death.png::CompressedTexture2D/CompressedTexture2D::282576081825649244::1721754762::1750446714::1::::<><><>0<>0<>115f2776e7162c52b5c9e78bed61c7a4<>res://.godot/imported/yellowNinja - Death.png-4f1d187f14ac57ea615b7fb9479c222e.ctex::
-yellowNinja - hit.png::CompressedTexture2D/CompressedTexture2D::3832280666515057895::1721754744::1750446714::1::::<><><>0<>0<>4ec41a836c28a27877b5ded4079f4785<>res://.godot/imported/yellowNinja - hit.png-d2d56050621067ab2a8636c78a830ba4.ctex::
-yellowNinja - idle.png::CompressedTexture2D/CompressedTexture2D::8623192339067849396::1721754716::1750446714::1::::<><><>0<>0<>77d84fd1c53d81dbf15b81b2a88f231c<>res://.godot/imported/yellowNinja - idle.png-cbe13fe652d12ac9aa04669f37b9292d.ctex::
-yellowNinja - walk.png::CompressedTexture2D/CompressedTexture2D::3920745800346434106::1721754724::1750446714::1::::<><><>0<>0<>5dee8d22cf1a8e5130d53be56cf6b74e<>res://.godot/imported/yellowNinja - walk.png-353918fa412961ee5e1f1301ee081c2b.ctex::
-yellowNinja - Whitehit.png::CompressedTexture2D/CompressedTexture2D::65884825019852698::1721754754::1750446714::1::::<><><>0<>0<>2492cb7e0ac2090c7f9faab49a07d597<>res://.godot/imported/yellowNinja - Whitehit.png-0e72d4c0896ac85ea05ef7373de398fd.ctex::
-::res://asset/Lettuce/::1750446582
+::res://asset/::1750570851
+::res://asset/Lettuce/::1750571147
+Explosion.png::CompressedTexture2D::4411066122218777515::1750570235::1750571177::1::::<><><>0<>0<>a19d5a3209bc728bcd55b384472afe5d<>res://.godot/imported/Explosion.png-5a2bc387f13b99f4080f0b276f12f53c.ctex::
 Lettuce1.png::CompressedTexture2D/CompressedTexture2D::6262225658875880002::1750445500::1750446345::1::::<><><>0<>0<>0cc838a5b48f971007c63fe3763e6f8a<>res://.godot/imported/Lettuce1.png-685460da80f0b04d071965c81600828a.ctex::
 Lettuce2.png::CompressedTexture2D/CompressedTexture2D::2090435636070481523::1750445500::1750446345::1::::<><><>0<>0<>4b850dac20b0e12ea7f8d272eda0a33c<>res://.godot/imported/Lettuce2.png-4ac4e650fa937d72a33d225af9e06a12.ctex::
 Lettuce3.png::CompressedTexture2D/CompressedTexture2D::9203343970108963894::1750445500::1750446345::1::::<><><>0<>0<>dbd4039f83e3d3afe9f408a21a3eaea3<>res://.godot/imported/Lettuce3.png-b5340fd87040c2ddab6dcd4ac8a5df64.ctex::
@@ -35,10 +28,10 @@ MetalFences.png::CompressedTexture2D/CompressedTexture2D::7835968961010575357::1
 Tilemaps-stones.png::CompressedTexture2D/CompressedTexture2D::7712897877047221830::1750446582::1750446588::1::::<><><>0<>0<>4914a91ff3b3bd301157ce542ae9d9f4<>res://.godot/imported/Tilemaps-stones.png-f08762abf717f1dae9d23c4e8b4a2993.ctex::
 Vtilemap1.png::CompressedTexture2D/CompressedTexture2D::7701608194696252399::1750446582::1750446588::1::::<><><>0<>0<>5ba87e951060ef76d6a64265dffa57cf<>res://.godot/imported/Vtilemap1.png-84b77055ae2248ccbd6c28fedf0e9e8a.ctex::
 Vtilemap2.png::CompressedTexture2D/CompressedTexture2D::4909243583467823168::1750446582::1750446588::1::::<><><>0<>0<>4c8b325030ae506116dbcddf64960e62<>res://.godot/imported/Vtilemap2.png-45169e3179dc196bc7c7dc0285f26fd4.ctex::
-::res://scene/::1750507157
-enemy_things.tscn::PackedScene::1587415696360439739::1750507157::0::1::::<><><>0<>0<><>::uid://ea48syrmj1ci::::res://asset/FreeNinja/YellowNinja/yellowNinja - Death.png<>uid://blwpkg2a6mfgt::::res://script/enemy_things.gd<>uid://du4eyn7yfylsu::::res://asset/FreeNinja/YellowNinja/yellowNinja - idle.png<>uid://66d4ey4ye1g::::res://asset/FreeNinja/YellowNinja/yellowNinja - Whitehit.png<>uid://bv4id00h52ira::::res://asset/FreeNinja/YellowNinja/yellowNinja - walk.png<>uid://r4bp3og357w0::::res://asset/FreeNinja/YellowNinja/yellowNinja - attack.png
-game.tscn::PackedScene::3641126800474112257::1750502680::0::1::::<><><>0<>0<><>::uid://ch83t3uo3o165::::res://scene/saussage.tscn<>uid://wu7rfkudc1tn::::res://scene/enemy_things.tscn<>uid://dh5gkifbu7g11::::res://asset/Tilemap/Tilemaps-stones.png<>uid://dhyymkgel7gbf::::res://asset/Tilemap/Vtilemap1.png<>uid://bl0xk1bjrj4pn::::res://asset/Light/Lights1.png<>uid://de7gwajco0af3::::res://asset/Light/Lights2.png<>uid://djv2i8d3po6vx::::res://asset/Tilemap/MetalFences.png
-saussage.tscn::PackedScene::5334023246842042516::1750502680::0::1::::<><><>0<>0<><>::uid://bcbllq6hfnee5::::res://asset/Saussage/sausages1.png<>uid://bu1k8k5gmrib7::::res://script/saussage.gd<>uid://b7ddmnnhb8os0::::res://asset/Saussage/sausages.png<>uid://cvlcee7frnqu6::::res://asset/Saussage/sausages2.png<>uid://colt47y1fhtos::::res://asset/Saussage/sausages3.png<>uid://du8qdwaaqx0d8::::res://asset/Saussage/sausages4.png<>uid://byfmulu0y2jhh::::res://asset/Saussage/sausages5.png
-::res://script/::1750502830
-enemy_things.gd::GDScript::3204843244023042435::1750502830::0::1::::<>CharacterBody2D<><>0<>0<><>::
-saussage.gd::GDScript::3844538051052789098::1750501965::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://scene/::1750570743
+enemy_things.tscn::PackedScene::1587415696360439739::1750570743::0::1::::<><><>0<>0<><>::uid://ea48syrmj1ci::::res://asset/FreeNinja/YellowNinja/yellowNinja - Death.png<>uid://blwpkg2a6mfgt::::res://script/enemy_things.gd<>uid://66d4ey4ye1g::::res://asset/FreeNinja/YellowNinja/yellowNinja - Whitehit.png<>uid://cvhp7at0vwyww::::res://asset/Lettuce/Lettuce1.png<>uid://41vf07n2dl0n::::res://asset/Lettuce/Lettuce2.png<>uid://d4efy3sayoxg5::::res://asset/Lettuce/Lettuce3.png<>uid://3lk6d118oeqj::::res://asset/Lettuce/Lettuce4.png<>uid://b7ostp6glsue6::::res://asset/Lettuce/Lettuce5.png<>uid://dfmo5wubordjd::::res://asset/Lettuce/Lettuce6.png<>uid://c3uaoykxxkqux::::res://asset/Lettuce/Lettuce7.png
+game.tscn::PackedScene::3641126800474112257::1750570743::0::1::::<><><>0<>0<><>::uid://ch83t3uo3o165::::res://scene/saussage.tscn<>uid://wu7rfkudc1tn::::res://scene/enemy_things.tscn<>uid://dh5gkifbu7g11::::res://asset/Tilemap/Tilemaps-stones.png<>uid://dhyymkgel7gbf::::res://asset/Tilemap/Vtilemap1.png<>uid://bl0xk1bjrj4pn::::res://asset/Light/Lights1.png<>uid://de7gwajco0af3::::res://asset/Light/Lights2.png<>uid://djv2i8d3po6vx::::res://asset/Tilemap/MetalFences.png
+saussage.tscn::PackedScene::5334023246842042516::1750570743::0::1::::<><><>0<>0<><>::uid://bcbllq6hfnee5::::res://asset/Saussage/sausages1.png<>uid://bu1k8k5gmrib7::::res://script/saussage.gd<>uid://b7ddmnnhb8os0::::res://asset/Saussage/sausages.png<>uid://cvlcee7frnqu6::::res://asset/Saussage/sausages2.png<>uid://colt47y1fhtos::::res://asset/Saussage/sausages3.png<>uid://du8qdwaaqx0d8::::res://asset/Saussage/sausages4.png<>uid://byfmulu0y2jhh::::res://asset/Saussage/sausages5.png
+::res://script/::1750570235
+enemy_things.gd::GDScript::3204843244023042435::1750570235::0::1::::<>CharacterBody2D<><>0<>0<><>::
+saussage.gd::GDScript::3844538051052789098::1750570235::0::1::::<>CharacterBody2D<><>0<>0<><>::
