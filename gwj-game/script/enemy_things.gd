@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 var speed = 50
-var health = 100
 var dead = false
 var player_in_area = false
 var player
@@ -100,6 +99,7 @@ func handle_random_walk(delta: float) -> void:
 
 func _on_player_detection_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
+		speed = 100
 		if is_facing_right and body.position.x > position.x:
 			player_in_area = true
 			player = body
@@ -118,28 +118,22 @@ func _on_player_detection_area_body_exited(body: Node2D) -> void:
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if dead:
 		return
-	var damage
 	print("something entered ", area.name)
 	if area.has_method("bullet"):
-		damage = 50
-		take_damage(damage)
+		take_damage()
 	if area.name == "DamgeTestBox":
-		damage = 50
-		take_damage(damage)
-		print("Enemy health :", health)
+		take_damage()
 
-func take_damage(damage):
-	health -= damage
-	$AnimatedSprite.play("Hit")
-	if health <= 0 and !dead:
-		death()
+func take_damage():
+	death()
 		
 func death():
 	dead = true
 	$AnimatedSprite.play("Death")
 	await get_tree().create_timer(1).timeout
-	#queue_free()
 	$CollisionShape2D.disabled = true
+	await get_tree().create_timer(5).timeout
+	queue_free()
 	
 
 func _on_hitbox_area_exited(area: Area2D) -> void:

@@ -80,5 +80,4 @@ shape = SubResource("RectangleShape2D_xqtd6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamgeTestBox"]
 position = Vector2(-0.285715, 0.857142)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_tdvn3")
