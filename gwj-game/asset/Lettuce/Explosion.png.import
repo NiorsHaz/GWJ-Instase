@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buundqxrl6jjj"
-path="res://.godot/imported/yellowNinja - hit.png-d2d56050621067ab2a8636c78a830ba4.ctex"
+uid="uid://b330u5o8q8t28"
+path="res://.godot/imported/Explosion.png-5a2bc387f13b99f4080f0b276f12f53c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/FreeNinja/YellowNinja/yellowNinja - hit.png"
-dest_files=["res://.godot/imported/yellowNinja - hit.png-d2d56050621067ab2a8636c78a830ba4.ctex"]
+source_file="res://asset/Lettuce/Explosion.png"
+dest_files=["res://.godot/imported/Explosion.png-5a2bc387f13b99f4080f0b276f12f53c.ctex"]
 
 [params]
 
